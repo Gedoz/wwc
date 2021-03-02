@@ -13,7 +13,6 @@ import { DataService } from 'src/app/services/data.service';
 import { GlobalService } from 'src/app/services/global.service';
 import { HelperService } from 'src/app/services/helper.service';
 import { AlertService } from 'src/app/services/website/alert.service';
-import Rellax from 'rellax';
 
 import scrollSpy from 'simple-scrollspy'
 import { NgwWowService } from 'ngx-wow';
@@ -71,7 +70,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     public _alert: AlertService,
     public _wow: NgwWowService,
     public router: Router
-    ) { 
+  ) {
     this.initWow();
   }
 
@@ -79,14 +78,9 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
-    
+
     this.fork();
     scrollSpy('#header', options);
-
-    const rellax = new Rellax('.rellax', {
-      speed: -2,
-      center: true,
-    });
   }
 
   ngOnDestroy(): void {
@@ -118,7 +112,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     this.loading = true;
 
     forkJoin(req).subscribe((res: any) => {
-      console.log(res);
       this.banner = res[0];
       this.beneficios = res[1];
       this.consultorias = res[2];

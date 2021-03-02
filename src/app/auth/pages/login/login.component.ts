@@ -47,7 +47,6 @@ export class LoginComponent implements OnInit {
             });
 
             dialogRef.afterClosed().subscribe(result => {
-              console.log('The dialog was closed');
             });
           } else {
             this.auth.setToken(btoa(this.user.email + ':' + this.user.senha));

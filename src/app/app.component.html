@@ -1,1 +1,7 @@
-<router-outlet></router-outlet>
+<router-outlet *ngIf="!showOverlay"></router-outlet>
+<section class="loading" [class.active]="showOverlay">
+    <div class="loading-logo">
+        <img src="assets/logo-icon.png" alt="WWC Sistemas Carregando...">
+    </div>
+    <div class="lds-hourglass"></div>
+</section>

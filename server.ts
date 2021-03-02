@@ -1,5 +1,5 @@
 import 'zone.js/dist/zone-node';
-import 'localstorage-polyfill'
+import 'localstorage-polyfill';
 
 import { ngExpressEngine } from '@nguniversal/express-engine';
 import * as express from 'express';
@@ -17,11 +17,10 @@ function requireHTTPS(req, res, next) {
 }
 
 // The Express app is exported so that it can be used by serverless Functions.
-export function app() {
+export function app(): express.Express {
   const server = express();
   const compression = require('compression');
-  // const sessionStorage = require('sessionstorage');
-  const distFolder = join(process.cwd(), 'dist/browser');
+  const distFolder = join(process.cwd(), 'dist/wwc/browser');
   const indexHtml = existsSync(join(distFolder, 'index.original.html')) ? 'index.original.html' : 'index';
 
   const domino = require("domino");
@@ -56,7 +55,7 @@ export function app() {
   return server;
 }
 
-function run() {
+function run(): void {
   const port = process.env.PORT || 3000;
 
   // Start up the Node server

@@ -25,7 +25,6 @@ export class HeaderComponent implements OnInit {
   }
 
   goTo(page: any) {
-    console.log(page);
     if (page.route) {
       this.router.navigate([page.route]).then(() => {
         this.global.menuOpen = false;
