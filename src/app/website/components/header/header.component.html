@@ -1,0 +1,45 @@
+<header class="header" [class.active]="active" id="header">
+    <div class="container">
+        <nav class="header-nav">
+            <a class="logo" [ngxScrollTo]="'banner'" [ngxScrollToOffset]="-100" (click)="menuOpen = false">
+                <img src="assets/logo.png" alt="WWC Sistemas">
+            </a>
+            <button class="header-menu__toggle hidden-desktop" (click)="menuOpen = !menuOpen">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="header-menu" [class.active]="menuOpen">
+                <li class="header-menu__item nunito" [ngxScrollTo]="'beneficios'" [ngxScrollToOffset]="-100" (click)="menuOpen = false">
+                    <a class="header-menu__link scrollspy-link" href="#beneficios">
+                        Benefícios
+                    </a>
+                </li>
+                <li class="header-menu__item nunito" [ngxScrollTo]="'consultorias'" [ngxScrollToOffset]="-100" (click)="menuOpen = false">
+                    <a class="header-menu__link scrollspy-link" href="#consultorias">
+                        Consultoria
+                    </a>
+                </li>
+                <li class="header-menu__item nunito" [ngxScrollTo]="'modulos'" [ngxScrollToOffset]="-100" (click)="menuOpen = false">
+                    <a class="header-menu__link scrollspy-link" href="#modulos">
+                        Módulos
+                    </a>
+                </li>
+                <li class="header-menu__item nunito" [ngxScrollTo]="'clientes'" [ngxScrollToOffset]="-100" (click)="menuOpen = false">
+                    <a class="header-menu__link scrollspy-link" href="#clientes">
+                        Clientes
+                    </a>
+                </li>
+                <li class="header-menu__item nunito" [ngxScrollTo]="'faq'" [ngxScrollToOffset]="-100" (click)="menuOpen = false">
+                    <a class="header-menu__link scrollspy-link" href="#faq">
+                        FAQ
+                    </a>
+                </li>
+                <li class="header-menu__item nunito" [ngxScrollTo]="'contato'" [ngxScrollToOffset]="-100" (click)="menuOpen = false">
+                    <a class="header-menu__link scrollspy-link" href="#contato">
+                        Contato
+                    </a>
+                </li>
+            </ul>
+            <div class="header-menu-backdrop" [class.active]="menuOpen" (click)="menuOpen = false"></div>
+        </nav>
+    </div>
+</header>

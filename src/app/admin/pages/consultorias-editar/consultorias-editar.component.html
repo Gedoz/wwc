@@ -1,0 +1,42 @@
+<section class="page">
+    <div class="container">
+        <div class="page-wrapper">
+            <div class="page-header">
+                <h1 class="page-title">
+                    Editar consultoria
+                </h1>
+                <div class="page-header__buttons">
+                    <button mat-stroked-button color="primary" routerLink="/admin/consultorias">
+                        VOLTAR
+                    </button>
+                </div>
+            </div>
+            <form class="page-form" (ngSubmit)="submit(form)" #form="ngForm">
+
+                <h3 class="page-form__title">
+                    Dados da consultoria
+                </h3>
+
+                <mat-form-field class="page-form-control">
+                    <input matInput type="text" placeholder="Título" [(ngModel)]="data.titulo" name="titulo" required>
+                </mat-form-field>
+
+                <mat-form-field class="page-form-control">
+                    <textarea matInput rows="6" placeholder="Descrição" [(ngModel)]="data.descricao" name="descricao"
+                        required></textarea>
+                </mat-form-field>
+
+                <mat-form-field class="page-form-control">
+                    <input matInput type="text" placeholder="Ordem" [(ngModel)]="data.ordem" name="ordem" required>
+                </mat-form-field>
+
+                <hr>
+
+                <button mat-raised-button color="primary" type="submit">
+                    SALVAR
+                </button>
+
+            </form>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,58 @@
+<section class="page">
+    <div class="container">
+        <div class="page-wrapper">
+            <div class="page-header">
+                <h1 class="page-title">
+                    Configurar e-mail
+                </h1>
+                <div class="page-header__buttons">
+                    <button mat-stroked-button color="primary" routerLink="/">
+                        VOLTAR
+                    </button>
+                </div>
+            </div>
+            <form class="page-form" (ngSubmit)="submit(form)" #form="ngForm">
+
+                <mat-progress-bar mode="indeterminate" class="page-form-loading" *ngIf="!data.id"></mat-progress-bar>
+                <div class="page-form-loading-shade" *ngIf="!data.id"></div>
+
+                <h3 class="page-form__title">
+                    Dados do e-mail
+                </h3>
+
+                <mat-form-field class="page-form-control two-third">
+                    <input matInput type="text" placeholder="SMTP" [(ngModel)]="data.smtp" name="smtp" required>
+                </mat-form-field>
+
+                <mat-form-field class="page-form-control third">
+                    <input matInput type="tel" placeholder="Porta SMTP" [(ngModel)]="data.portaSmtp" name="portaSmtp"
+                        required mask="0*">
+                </mat-form-field>
+
+                <mat-form-field class="page-form-control half">
+                    <input matInput type="email" placeholder="E-mail" [(ngModel)]="data.emailAutenticar"
+                        name="emailAutenticar" required>
+                </mat-form-field>
+
+                <mat-form-field class="page-form-control half">
+                    <input matInput [type]="hide ? 'password' : 'text'" placeholder="Senha"
+                        [(ngModel)]="data.senhaAutenticar" name="senhaAutenticar" required>
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                        [attr.aria-pressed]="hide" type="button">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+
+                <mat-slide-toggle (change)="onSslChange($event)" [checked]="data.ssl === 'S' ? true : false">
+                    SSL:
+                    {{data.ssl === 'S' ? 'Sim' : 'Não'}}</mat-slide-toggle>
+
+                <hr>
+
+                <button mat-raised-button color="primary" type="submit">
+                    SALVAR
+                </button>
+            </form>
+        </div>
+    </div>
+</section>

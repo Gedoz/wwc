@@ -1,0 +1,13 @@
+<section class="alert" [class.active]="_alert.active">
+    <h2 class="alert__title nunito">
+        {{_alert.title}}
+    </h2>
+    <hr>
+    <p class="alert__description">
+        {{_alert.descricao}}
+    </p>
+    <button class="btn btn-default" (click)="_alert.dismiss()">
+        <span>FECHAR</span>
+    </button>
+</section>
+<div class="alert-backdrop" [class.active]="_alert.active" (click)="_alert.dismiss()"></div>

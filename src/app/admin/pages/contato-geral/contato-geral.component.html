@@ -1,0 +1,113 @@
+<section class="page">
+    <div class="container">
+        <div class="page-wrapper">
+            <div class="page-header">
+                <h1 class="page-title">
+                    Contato
+                </h1>
+            </div>
+            <form class="page-form" (ngSubmit)="submit(form)" #form="ngForm">
+
+                <mat-progress-bar mode="indeterminate" class="page-form-loading" *ngIf="!data.id"></mat-progress-bar>
+                <div class="page-form-loading-shade" *ngIf="!data.id"></div>
+
+                <h3 class="page-form__title">
+                    Contato
+                </h3>
+
+                <mat-form-field class="page-form-control">
+                    <input matInput type="email" [pattern]="helper.emailRegex" placeholder="E-mail"
+                        [(ngModel)]="data.email" name="email" required>
+                    <mat-hint>
+                        E-mail que será utilizado pelo site para envio de formulários. Não pode ser de domínio
+                        diferente do site.
+                    </mat-hint>
+                </mat-form-field>
+
+                <mat-form-field class="page-form-control">
+                    <input matInput type="tel" placeholder="Telefone" [(ngModel)]="data.telefone" name="telefone"
+                        (ngModelChange)="changePhoneMask($event)" [mask]="phoneMask" required>
+                </mat-form-field>
+
+                <hr>
+
+                <h3 class="page-form__title">
+                    Endereço
+                </h3>
+
+                <mat-form-field class="page-form-control">
+                    <input matInput type="tel" placeholder="CEP" [(ngModel)]="data.cep" mask="00000-000" name="cep"
+                        (blur)="onCepBlur($event)" required>
+                </mat-form-field>
+
+                <mat-form-field class="page-form-control third">
+                    <input matInput type="text" placeholder="Estado (UF)" [(ngModel)]="data.uf" name="uf" required>
+                </mat-form-field>
+
+                <mat-form-field class="page-form-control two-third">
+                    <input matInput type="text" placeholder="Cidade" [(ngModel)]="data.cidade" name="cidade" required>
+                </mat-form-field>
+
+                <mat-form-field class="page-form-control third">
+                    <input matInput type="text" placeholder="Bairro" [(ngModel)]="data.bairro" name="bairro" required>
+                </mat-form-field>
+
+                <mat-form-field class="page-form-control two-third">
+                    <input matInput type="text" placeholder="Rua" [(ngModel)]="data.rua" name="rua" required>
+                </mat-form-field>
+
+                <mat-form-field class="page-form-control third">
+                    <input matInput type="tel" placeholder="Número" mask="0*" [(ngModel)]="data.numeroEndereco"
+                        name="numeroEndereco" #numeroEnderecoInput required>
+                </mat-form-field>
+
+                <mat-form-field class="page-form-control two-third">
+                    <input matInput type="text" placeholder="Complemento" [(ngModel)]="data.complemento"
+                        name="complemento">
+                </mat-form-field>
+
+                <hr>
+
+                <h3 class="page-form__title">
+                    Google maps
+                </h3>
+
+                <mat-form-field class="page-form-control half">
+                    <input matInput type="tel" placeholder="Latitude" [(ngModel)]="data.latitude" name="latitude">
+                </mat-form-field>
+
+                <mat-form-field class="page-form-control half">
+                    <input matInput type="tel" placeholder="Longitude" [(ngModel)]="data.longitude" name="longitude">
+                </mat-form-field>
+
+                <hr>
+
+                <h3 class="page-form__title">
+                    Redes sociais
+                </h3>
+
+                <mat-form-field class="page-form-control">
+                    <input matInput type="text" placeholder="Instagram (opcional)" [(ngModel)]="data.linkInstagram"
+                        name="linkInstagram">
+                </mat-form-field>
+
+                <mat-form-field class="page-form-control">
+                    <input matInput type="text" placeholder="Facebook (opcional)" [(ngModel)]="data.linkFacebook"
+                        name="linkFacebook">
+                </mat-form-field>
+
+                <mat-form-field class="page-form-control">
+                    <input matInput type="tel" placeholder="Whatsapp" [(ngModel)]="data.whatsApp" name="whatsApp"
+                        mask="(00) 0 0000-0000" required>
+                </mat-form-field>
+
+                <hr>
+
+                <button mat-raised-button color="primary" type="submit">
+                    SALVAR
+                </button>
+
+            </form>
+        </div>
+    </div>
+</section>

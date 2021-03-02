@@ -1,0 +1,316 @@
+<div *ngIf="!loading">
+    <section class="scrollspy banner" id="banner">
+        <div class="container">
+            <div class="banner-box">
+                <div class="content">
+                    <h1 class="banner__title nunito animate__animated animate__fadeInDown wow">
+                        {{banner.titulo}}
+                    </h1>
+                    <h2 class="banner__description animate__animated animate__fadeInDown wow">
+                        {{banner.descricao}}
+                    </h2>
+                    <div class="banner__buttons">
+                        <a class="btn btn-default" [href]="banner.link" target="_blank" *ngIf="banner.link">
+                            <span>Saiba mais</span>
+                        </a>
+                        <a class="btn btn-outline" [ngxScrollTo]="'contato'" [ngxScrollToOffset]="-100">
+                            <span>Entre em contato</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="image animate__animated animate__fadeIn wow">
+                    <div class="dashboard">
+                        <img src="assets/dashboard.png" alt="dashboard">
+                    </div>
+                    <img src="assets/banner-man.png" alt="Simplifique a sua Gestão de Custos.">
+                </div>
+            </div>
+            <div class="macbook rellax">
+                <img src="assets/mac.png" alt="Macbook">
+            </div>
+        </div>
+    </section>
+
+    <section class="body">
+
+        <section class="scrollspy about" id="beneficios">
+            <div class="wrapper">
+                <div class="col">
+                    <h2 class="about__title nunito animate__animated animate__fadeInDown wow">
+                        Já conhece os nossos benefícios?
+                    </h2>
+                    <h3 class="about__description animate__animated animate__fadeInDown wow">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut neque non nibh. Lorem
+                        ipsum
+                        dolor sit amet, consectetur adipiscing elit. Vivamus ut neque.
+                    </h3>
+                    <a class="btn btn-default" [ngxScrollTo]="'contato'" [ngxScrollToOffset]="-100">
+                        <span>Entre em contato</span>
+                    </a>
+                </div>
+                <div class="col">
+                    <div class="about-list">
+                        <div class="about-item" *ngFor="let b of beneficios; let i = index;" [class.active]="i == 1">
+                            <div class="about-item__icon">
+                                <img [src]="_global.imageUrl+b.imagem" [alt]="b.nome" class="icon-ref">
+                                <img src="assets/logo-icon-full.svg" alt="dsauhdsa" class="icon-logo">
+                            </div>
+                            <h3 class="about-item__title">
+                                {{b.nome}}
+                            </h3>
+                            <p class="about-item__description">
+                                {{b.descricao}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="scrollspy consulting" id="consultorias">
+            <div class="container">
+                <div class="wrapper">
+                    <div class="col animate__animated animate__fadeIn wow">
+                        <div class="consulting-arrows">
+                            <button class="consulting-arrows__item consulting-arrows__item--left">
+                                <i class="fas fa-arrow-left"></i>
+                            </button>
+                            <button class="consulting-arrows__item consulting-arrows__item--right">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                        <swiper [config]="config" class="consulting-carousel">
+                            <div class="consulting-item" *ngFor="let c of consultorias">
+                                {{c.descricao}}
+                            </div>
+                        </swiper>
+                    </div>
+                    <div class="col animate__animated animate__fadeIn wow">
+                        <img src="assets/woman.png" alt="Woman">
+                    </div>
+                    <div class="col">
+                        <h2 class="consulting__title nunito animate__animated animate__fadeInDown wow">
+                            Consultoria
+                            <span>Personalizada</span>
+                        </h2>
+                        <h3 class="consulting__description animate__animated animate__fadeInDown wow">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut neque non nibh.
+                            Lorem
+                            ipsum
+                            dolor sit amet, consectetur adipiscing elit. Vivamus ut neque.
+                        </h3>
+                        <a class="btn btn-default" [ngxScrollTo]="'modulos'" [ngxScrollToOffset]="-100">
+                            <span>Saiba mais</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="scrollspy modules" id="modulos">
+            <div class="container">
+                <div class="modules-box">
+                    <div class="wrapper">
+                        <img src="assets/module-computer.png" alt="Pczin"
+                            class="animate__animated animate__fadeInLeft wow">
+                        <div class="title animate__animated animate__fadeIn wow">
+                            <h2 class="modules__title nunito">
+                                Nossos<br />módulos
+                            </h2>
+                            <h3 class="modules__description">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut neque non nibh.
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="modules-list">
+                    <div class="modules-item animate__animated animate__fadeInUp wow" *ngFor="let m of modulos">
+                        <div class="icon">
+                            <img [src]="_global.imageUrl+m.imagem" [alt]="m.nome">
+                        </div>
+                        <h3 class="modules-item__title">
+                            {{m.nome}}
+                        </h3>
+                        <ul *ngIf="m.funcionalidades.length" class="modules-item__functionalities">
+                            <li *ngFor="let f of m.funcionalidades">
+                                {{f.descricao}}
+                            </li>
+                        </ul>
+                        <p class="modules-item__description">
+                            {{m.descricao}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="scrollspy brands" id="clientes">
+            <div class="container">
+                <div class="title">
+                    <h2 class="brands__title nunito animate__animated animate__fadeInDown wow">
+                        Marcas<br />que confiam
+                    </h2>
+                    <h3 class="brands__description animate__animated animate__fadeInDown wow">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut neque non nibh.
+                    </h3>
+                </div>
+                <div class="brands-list">
+                    <a class="brands-item animate__animated animate__fadeIn wow" *ngFor="let c of clientes"
+                        [href]="c.link" target="_blank">
+                        <img [src]="_global.imageUrl+c.imagem" [alt]="c.nome">
+                    </a>
+                    <a class="btn btn-default" (click)="openWhatsapp()">
+                        <span>Faça parte</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="feedbacks">
+            <div class="container">
+                <div class="blue-circle">
+                    <h2 class="feedbacks__title nunito">
+                        E falam<br />sobre nós
+                    </h2>
+                    <p class="feedbacks__description">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, aliquid.
+                    </p>
+                    <div class="feedbacks__buttons">
+                        <div class="feedbacks-arrows">
+                            <button class="feedbacks-arrows__item feedbacks-arrows__item--prev">
+                                <i class="fas fa-arrow-left"></i>
+                            </button>
+                            <button class="feedbacks-arrows__item feedbacks-arrows__item--next">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                        <a class="btn btn-secondary" [ngxScrollTo]="'contato'" [ngxScrollToOffset]="-100">
+                            <span>Fale conosco</span>
+                        </a>
+                    </div>
+                    <swiper [config]="depoimentosConfig" [index]="depoimentosIndex" class="depoimentos-carousel">
+                        <div class="feedbacks-item" *ngFor="let d of depoimentos; let i = index;">
+                            <div class="feedbacks-item__element"></div>
+                            <h3 class="feedbacks-item__description">
+                                {{d.depoimento}}
+                            </h3>
+                            <div class="person">
+                                <div class="person__avatar">
+                                    <img [src]="d.imagem ? _global.imageUrl+d.imagem : 'assets/user-avatar.png'"
+                                        [alt]="d.nome">
+                                </div>
+                                <span class="person__name nunito">
+                                    {{d.nome}}
+                                    <small>{{d.descricao}}</small>
+                                </span>
+                            </div>
+                        </div>
+                    </swiper>
+                </div>
+                <div class="elements">
+                    <div class="elements-item elements-item--01">
+                        <img src="assets/elements/element01.png" alt="01">
+                    </div>
+                    <div class="elements-item elements-item--02">
+                        <img src="assets/elements/element02.png" alt="02">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+
+    <section class="faq">
+        <div class="container">
+            <div class="faq-wrapper scrollspy" id="faq">
+                <div class="col">
+                    <h2 class="faq__title nunito animate__animated animate__fadeInDown wow">
+                        Perguntas<br />Frequentes
+                    </h2>
+                    <p class="faq__description animate__animated animate__fadeInDown wow">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut neque non nibh.
+                    </p>
+                </div>
+                <div class="col">
+                    <div class="faq-list">
+                        <div class="faq-item animate__animated animate__fadeIn wow" *ngFor="let p of perguntas">
+                            <div class="faq-item-header" (click)="toogleItem(p)">
+                                <i [class]="p.active ? 'fas fa-minus' : 'fas fa-plus'"></i>
+                                <h3 class="faq-item__title nunito">{{p.pergunta}}</h3>
+                            </div>
+                            <div class="faq-item-content" [class.active]="p.active">
+                                <p class="faq-item__description">
+                                    {{p.resposta}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-box scrollspy animate__animated animate__fadeIn wow " id="contato">
+                <div class="contact-box-header">
+                    <h2 class="contact__title nunito">
+                        Fale com<br />
+                        a gente
+                    </h2>
+                    <p class="contact__description">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut neque non nibh.
+                    </p>
+                </div>
+                <div class="contact-box-content">
+                    <form class="form" (ngSubmit)="submit(form)" #form="ngForm">
+                        <div class="form-control half">
+                            <input type="text" placeholder="Nome" name="nome" [(ngModel)]="mensagem.nome"
+                                #nome="ngModel" required>
+                            <div class="form-control__warn" *ngIf="nome.invalid && (nome.touched || nome.dirty)">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                        </div>
+                        <div class="form-control half">
+                            <input type="tel" placeholder="Telefone" name="telefone" [(ngModel)]="mensagem.telefone"
+                                #telefone="ngModel" [mask]="phoneMask" (ngModelChange)="changePhoneMask($event)"
+                                required>
+                            <div class="form-control__warn"
+                                *ngIf="telefone.invalid && (telefone.touched || telefone.dirty)">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                        </div>
+                        <div class="form-control half">
+                            <input type="email" placeholder="Email" name="email" [(ngModel)]="mensagem.email"
+                                [pattern]="helper.emailRegex" #email="ngModel" required>
+                            <div class="form-control__warn" *ngIf="email.invalid && (email.touched || email.dirty)">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                        </div>
+                        <div class="form-control half">
+                            <input type="text" placeholder="Cidade" name="cidade" [(ngModel)]="mensagem.cidade"
+                                #cidade="ngModel" required>
+                            <div class="form-control__warn" *ngIf="cidade.invalid && (cidade.touched || cidade.dirty)">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                        </div>
+                        <div class="form-control-textarea">
+                            <textarea name="Mensagem" placeholder="Mensagem" required></textarea>
+                            <div class=" form-control__warn" *ngIf="cidade.invalid && (cidade.touched || cidade.dirty)">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <button class="btn btn-default">
+                                <span>Enviar</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<app-alert></app-alert>
+
+<section class="loading" [class.active]="loading">
+    <div class="loading-logo">
+        <img src="assets/logo-icon.png" alt="WWC Sistemas Carregando...">
+    </div>
+    <div class="lds-hourglass"></div>
+</section>

@@ -1,0 +1,34 @@
+<section class="login">
+    <div class="login-logo">
+        <img src="assets/logo.png" alt="WWC Sistemas">
+    </div>
+    <div class="login-box">
+        <h1 class="login-box__title">
+            {{isLogin ? 'Faça seu login' : 'Recuperar senha'}}
+        </h1>
+        <form class="login-form" (ngSubmit)="login(form)" #form="ngForm" *ngIf="isLogin">
+            <mat-form-field class="login-form-control">
+                <input matInput placeholder="E-mail" [(ngModel)]="user.email" type="email" name="email" required>
+            </mat-form-field>
+
+            <mat-form-field class="login-form-control">
+                <input matInput placeholder="Senha" [(ngModel)]="user.senha" type="password" name="senha" required>
+            </mat-form-field>
+
+            <button mat-flat-button color="primary" type="submit">
+                Entrar
+            </button>
+        </form>
+
+        <form class="login-form" (ngSubmit)="esqueceuSenha(formResetPassword)" #formResetPassword="ngForm" *ngIf="!isLogin">
+            <mat-form-field class="login-form-control">
+                <input matInput placeholder="E-mail" [(ngModel)]="user.email" type="email" name="email" required>
+            </mat-form-field>
+
+            <button mat-flat-button color="primary" type="submit">
+                Recuperar
+            </button>
+        </form>
+    </div>
+    <a (click)="isLogin = !isLogin">{{isLogin ? 'Esqueci minha senha' : 'Voltar ao login'}}</a>
+</section>

@@ -1,0 +1,59 @@
+<section class="page">
+    <div class="container">
+        <div class="page-wrapper">
+            <div class="page-header">
+                <h1 class="page-title">
+                    Editar módulo
+                </h1>
+                <div class="page-header__buttons">
+                    <button mat-stroked-button color="primary" routerLink="/admin/modulos">
+                        VOLTAR
+                    </button>
+                </div>
+            </div>
+            <form class="page-form" (ngSubmit)="submit(form)" #form="ngForm">
+
+                <h3 class="page-form__title">
+                    Dados do módulo
+                </h3>
+
+                <mat-form-field class="page-form-control">
+                    <input matInput type="text" placeholder="Nome" [(ngModel)]="data.nome" name="nome" required>
+                </mat-form-field>
+
+                <mat-form-field class="page-form-control">
+                    <textarea matInput rows="6" placeholder="Descrição" [(ngModel)]="data.descricao" name="descricao"
+                        required></textarea>
+                </mat-form-field>
+
+                <mat-form-field class="page-form-control">
+                    <input matInput type="tel" placeholder="Ordem" [(ngModel)]="data.ordem" name="ordem" required>
+                </mat-form-field>
+
+                <h3 class="page-form__title">
+                    Imagem (256x256)
+                </h3>
+
+                <div class="page-form-control page-form-image">
+                    <img [src]="global.imageUrl+data.imagem" *ngIf="data.imagem">
+                    <img src="assets/image-placeholder.png" *ngIf="!data.imagem">
+                    <button type="button" mat-button (click)="fileInput.click()">Escolher arquivo</button>
+                    <input hidden (change)="onFileSelected($event.target.files)" #fileInput type="file" id="imagem"
+                        accept="image/*">
+                    <button class="page-form-image__button" (click)="data.imagem = ''" type="button">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+
+                <app-funcionalidades *ngIf="data.id" [idModulo]="data.id"></app-funcionalidades>
+
+                <hr>
+
+                <button mat-raised-button color="primary" type="submit">
+                    SALVAR
+                </button>
+
+            </form>
+        </div>
+    </div>
+</section>

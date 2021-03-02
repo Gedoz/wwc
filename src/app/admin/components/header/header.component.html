@@ -1,0 +1,72 @@
+<header class="header">
+    <nav class="header-nav">
+        <button mat-icon-button aria-label="Abrir menu" class="header-menu-toggle" (click)="global.toggleMenu()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <ul class="header-menu" [class.active]="global.menuOpen">
+
+            <mat-form-field class="header-menu-search" appearance="fill">
+                <input matInput name="search" [(ngModel)]="search" placeholder="Pesquise aqui"
+                    (ngModelChange)="onSearchChange($event)">
+                <button mat-button *ngIf="search" type="button" matSuffix mat-icon-button aria-label="Limpar"
+                    (click)="search = null">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+
+            <!-- | filter:search:'name'; -->
+            <li class="header-menu__item" *ngFor="let page of pages">
+                <a (click)="goTo(page)" mat-button class="header-menu__link">
+                    <i [class]="page.icon"></i>
+                    <span class="header-menu__item__name">{{page.name}}</span>
+                    <ng-container *ngIf="page.group">
+                        <i class="fas fa-chevron-down header-menu__link__arrow" *ngIf="page.openGroup"></i>
+                        <i class="fas fa-chevron-right header-menu__link__arrow" *ngIf="!page.openGroup"></i>
+                    </ng-container>
+                </a>
+                <ng-container *ngIf="page.openGroup">
+                    <ul class="submenu">
+
+                        <li class="submenu-item" *ngFor="let item of page.group">
+                            <a (click)="goTo(item)" mat-button class="header-menu__link">
+                                <i [class]="item.icon"></i>
+                                <span>{{item.name}}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </ng-container>
+            </li>
+
+            <li class="header-menu__item">
+                <a (click)="logout()" mat-button color="primary" class="header-menu__link">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Sair</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="header-menu-backdrop" (click)="global.toggleMenu()" [class.active]="global.menuOpen"></div>
+
+        <a routerLink="/admin" class="header-logo">
+            <img src="assets/logo-icon.png" alt="WWC Sistemas">
+        </a>
+
+        <div class="right" *ngIf="auth.user">
+            <button mat-button [matMenuTriggerFor]="userMenu" class="header-user">
+                <span>Olá, <b>{{auth.user.nome}} {{auth.user.sobrenome}}</b></span>
+                <div class="header-user-avatar">
+                    <img [src]="auth.user.imagemPerfil || 'assets/user-avatar.png'" [alt]="auth.user.nome">
+                </div>
+            </button>
+            <mat-menu #userMenu="matMenu">
+                <button mat-menu-item [routerLink]="['/usuarios/editar', auth.user.id]">Editar perfil</button>
+                <button mat-menu-item (click)="logout()">Sair</button>
+            </mat-menu>
+            <ul class="header-buttons">
+                <li>
+
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>

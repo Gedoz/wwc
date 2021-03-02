@@ -1,0 +1,56 @@
+<footer class="footer">
+    <div class="container">
+        <div class="wrapper">
+            <div class="footer-menu">
+                <div class="col">
+                    <h3 class="footer-menu__title">
+                        Telefone
+                    </h3>
+                    <a [href]="'tel:'+contatoGeral.telefone" class="footer-menu__link" *ngIf="contatoGeral.telefone">
+                        {{contatoGeral.telefone | mask: '(00) 0000-0000'}}
+                    </a>
+                    <a [href]="'https://wa.me/55'+contatoGeral.whatsApp" class="footer-menu__link"
+                        *ngIf="contatoGeral.whatsApp">
+                        {{contatoGeral.whatsApp | mask: '(00) 0 0000-0000'}}
+                    </a>
+                </div>
+                <div class="col">
+                    <h3 class="footer-menu__title">
+                        Email
+                    </h3>
+                    <a href="'mailto:'+contatoGeral.email" class="footer-menu__link" *ngIf="contatoGeral.email">
+                        {{contatoGeral.email}}
+                    </a>
+                    <div class="social">
+                        <a [href]="contatoGeral.linkFacebook" target="_blank" class="social-item"
+                            *ngIf="contatoGeral.linkFacebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a [href]="contatoGeral.linkInstagram" target="_blank" class="social-item"
+                            *ngIf="contatoGeral.linkInstagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a [href]="contatoGeral.linkLinkedin" target="_blank" class="social-item"
+                            *ngIf="contatoGeral.linkLinkedin">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <h3 class="footer-menu__title">
+                        Endereço
+                    </h3>
+                    <p class="footer-menu__description">
+                        Rua {{contatoGeral.rua}}, {{contatoGeral.numeroEndereco}}{{contatoGeral.complemento}} Bairro {{contatoGeral.bairro}}{{contatoGeral.cidade}} - {{contatoGeral.uf}}
+                    </p>
+                </div>
+            </div>
+            <div class="logo">
+                <img src="assets/logo-full.png" alt="WWC Gestão de Custos">
+            </div>
+        </div>
+        <div class="footer-copyrights">
+            WWC Gestão de Custos. 2021 | Todos os direitos reservados.
+        </div>
+    </div>
+</footer>

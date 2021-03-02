@@ -1,0 +1,17 @@
+<button class="whatsapp-button" (click)="active = !active">
+    <img src="assets/icons/whatsapp.svg" alt="Whatsapp">
+</button>
+<div class="whatsapp-window" [class.active]="active">
+    <button class="btn-close" (click)="active = false">
+        <i class="fas fa-times"></i>
+    </button>
+    <div class="whatsapp-window__baloon">
+        Manda um whats! Estamos<br />sempre <b>online</b> para você!
+    </div>
+    <form (ngSubmit)="sendMessage(messageInput.value)">
+        <input type="text" placeholder="Escreva sua mensagem" #messageInput>
+        <button type="submit">
+            <i class="fas fa-paper-plane"></i>
+        </button>
+    </form>
+</div>

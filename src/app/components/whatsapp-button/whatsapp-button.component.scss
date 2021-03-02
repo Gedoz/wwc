@@ -1,0 +1,110 @@
+@import "../../../styles/variables";
+
+.whatsapp-button {
+    position: fixed;
+    top: 80%;
+    right: 16px;
+    transform: translate(0, -50%);
+    z-index: 99;
+    animation: float 2s ease-in-out infinite;
+}
+
+.btn-close {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-25%, -25%);
+    background: $color-danger;
+    color: #ffffff;
+}
+
+.whatsapp-window {
+    background: url(../../../assets/whatsapp-background.png) center center no-repeat;
+    background-size: cover;
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translate(calc(100% + 24px), -50%);
+    padding: 30px 20px;
+    border-radius: 25px 0 0 25px;
+    z-index: 99;
+    transition: all 300ms;
+
+    &.active {
+        transform: translate(0, -50%);
+    }
+
+    &__baloon {
+        background: #ffffff;
+        box-shadow: 0 0 1px 0.5px rgba(0, 0, 0, 0.13);
+        padding: 9px 12px 11px;
+        border-radius: 8px;
+        width: calc(100% - 50px);
+        color: $text-color-secondary;
+
+        &::before {
+        }
+    }
+
+    form {
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        margin-top: 16px;
+
+        input {
+            flex-grow: 1;
+            height: 42px;
+            border-radius: 21px;
+            padding: 9px 12px 11px;
+            font-size: 15px;
+            background: #ffffff;
+            outline: 0;
+            border: 0;
+            margin-right: 8px;
+            color: $text-color-secondary;
+            min-width: 240px;
+            box-shadow: 0 0 1px 0.5px rgba(0, 0, 0, 0.13);
+        }
+
+        button {
+            font-size: 15px;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            color: #ffffff;
+            text-align: center;
+            display: block;
+            background: #25d366;
+            box-shadow: 0 0 1px 0.5px rgba(0, 0, 0, 0.13);
+
+            &:hover {
+                background: #128c7e;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .whatsapp-button {
+        top: unset;
+        transform: translate(0, 0);
+        bottom: 8px;
+        right: 8px;
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translatey(0px);
+    }
+    50% {
+        transform: translatey(-20px);
+    }
+    100% {
+        transform: translatey(0px);
+    }
+}

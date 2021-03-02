@@ -1,0 +1,62 @@
+<section class="page">
+    <div class="container">
+        <div class="page-wrapper">
+            <div class="page-header">
+                <h1 class="page-title">
+                    Configurar geral
+                </h1>
+                <div class="page-header__buttons">
+                    <button mat-stroked-button color="primary" routerLink="/">
+                        VOLTAR
+                    </button>
+                </div>
+            </div>
+            <form class="page-form" (ngSubmit)="submit(form)" #form="ngForm">
+
+                <mat-progress-bar mode="indeterminate" class="page-form-loading" *ngIf="!data.id"></mat-progress-bar>
+                <div class="page-form-loading-shade" *ngIf="!data.id"></div>
+
+                <h3 class="page-form__title">
+                    Dados gerais
+                </h3>
+
+                <mat-form-field class="page-form-control half">
+                    <mat-select name="ambiente" [(ngModel)]="data.ambiente">
+                        <mat-option value="T">Teste</mat-option>
+                        <mat-option value="P">Produção</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field class="page-form-control half">
+                    <input matInput type="text" placeholder="Link da API" [(ngModel)]="data.linkApi" name="linkApi">
+                </mat-form-field>
+
+                <mat-form-field class="page-form-control half">
+                    <input matInput type="text" placeholder="Caminha Físico (teste)" [(ngModel)]="data.caminhoFisico"
+                        name="caminhoFisico">
+                </mat-form-field>
+
+                <h3 class="page-form__title">
+                    Imagem
+                </h3>
+
+                <div class="page-form-control page-form-image">
+                    <img [src]="global.imageUrl+data.imagemLogo" *ngIf="data.imagemLogo">
+                    <img src="assets/image-placeholder.png" *ngIf="!data.imagemLogo">
+                    <button type="button" mat-button (click)="fileInput.click()">Escolher arquivo</button>
+                    <input hidden (change)="onFileSelected($event.target.files)" #fileInput type="file" id="imagemLogo"
+                        accept="image/*">
+                    <button class="page-form-image__button" (click)="data.imagemLogo = ''" type="button">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+
+                <hr>
+
+                <button mat-raised-button color="primary" type="submit">
+                    SALVAR
+                </button>
+            </form>
+        </div>
+    </div>
+</section>

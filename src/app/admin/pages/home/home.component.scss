@@ -1,0 +1,31 @@
+@import "../../../../styles/variables";
+
+.home-boxes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .home-box {
+        margin-bottom: 16px;
+    }
+}
+
+.pages {
+    max-width: 30%;
+    &-item {
+        a {
+            display: flex;
+            flex-flow: row;
+            align-items: center;
+
+            .fas {
+                margin-right: 8px;
+                color: $color-primary;
+            }
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+}

@@ -1,1 +1,103 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import "~@angular/material/theming";
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$wwc-primary: mat-palette(
+  (
+    50: #e0e0e9,
+    100: #b3b3c7,
+    200: #8080a2,
+    300: #4d4d7d,
+    400: #262661,
+    500: #000045,
+    600: #00003e,
+    700: #000036,
+    800: #00002e,
+    900: #00001f,
+    A100: #5c5cff,
+    A200: #2929ff,
+    A400: #0000f5,
+    A700: #0000db,
+    contrast: (
+      50: #000000,
+      100: #000000,
+      200: #000000,
+      300: #ffffff,
+      400: #ffffff,
+      500: #ffffff,
+      600: #ffffff,
+      700: #ffffff,
+      800: #ffffff,
+      900: #ffffff,
+      A100: #ffffff,
+      A200: #ffffff,
+      A400: #ffffff,
+      A700: #ffffff,
+    ),
+  )
+);
+$wwc-accent: mat-palette(
+  (
+    50: #eff9fc,
+    100: #d8f1f8,
+    200: #bee8f4,
+    300: #a4dff0,
+    400: #91d8ec,
+    500: #7dd1e9,
+    600: #75cce6,
+    700: #6ac6e3,
+    800: #60c0df,
+    900: #4db5d9,
+    A100: #ffffff,
+    A200: #ffffff,
+    A400: #cff2ff,
+    A700: #b5ebff,
+    contrast: (
+      50: #000000,
+      100: #000000,
+      200: #000000,
+      300: #000000,
+      400: #000000,
+      500: #000000,
+      600: #000000,
+      700: #000000,
+      800: #000000,
+      900: #000000,
+      A100: #000000,
+      A200: #000000,
+      A400: #000000,
+      A700: #000000,
+    ),
+  )
+);
+
+// The warn palette is optional (defaults to red).
+$wwc-warn: mat-palette($mat-red);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$wwc-theme: mat-light-theme($wwc-primary, $wwc-accent, $wwc-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($wwc-theme);
+
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Heebo", sans-serif;
+}

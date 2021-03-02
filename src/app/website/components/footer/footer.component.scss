@@ -1,0 +1,132 @@
+@import "../../../../styles/variables";
+
+.footer {
+
+    background: url(../../../../assets/footer.svg) top left no-repeat;
+    padding: 30px 0;
+    background-size: cover;
+    background-color: #f3f3f3;
+
+    &-copyrights {
+        text-align: center;
+        color: #ffffff;
+    }
+
+    .wrapper {
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        padding: 60px 0 70px;
+
+        .footer-menu {
+            flex: 3;
+            display: flex;
+            flex-flow: row;
+            align-items: flex-start;
+            gap: 60px;
+
+            &__title {
+                font-size: 20px;
+                color: $color-primary;
+                margin-bottom: 10px;
+            }
+
+            &__link {
+                font-size: 18px;
+                font-weight: 300;
+                color: #ffffff;
+                display: block;
+                margin-bottom: 5px;
+
+                &:hover {
+                    color: $color-primary;
+                    text-decoration: none;
+                }
+            }
+
+            &__description {
+                color: #ffffff;
+            }
+
+            .col {
+                flex: 1;
+            }
+        }
+
+        .logo {
+            flex: 1;
+        }
+    }
+
+    .social {
+        display: flex;
+        align-items: center;
+        margin-top: 40px;
+
+        &-item {
+            margin-right: 24px;
+        }
+    }
+
+    .logo {
+        min-width: 120px;
+        position: relative;
+
+        img {
+            width: 120px;
+            object-fit: contain;
+            display: block;
+            margin-left: auto;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .footer {
+        background: $color-secondary;
+
+        .wrapper {
+            flex-flow: column;
+
+            .footer-menu {
+                flex-flow: column;
+                align-items: center;
+                justify-content: center;
+                gap: 0px;
+    
+                .col {
+                    & + .col {
+                        margin-top: 44px;
+                    }
+                }
+
+                &__title {
+                    text-align: center;
+                }
+
+                &__link {
+                    text-align: center;
+                }
+
+                &__description {
+                    text-align: center;
+                }
+            }
+        }
+
+        .social {
+            justify-content: center;
+
+            &-item {
+                margin-right: 0px;
+                margin: 0 12px;
+                font-size: 20px;
+            }
+        }
+
+        .logo {
+            margin-top: 60px;
+        }
+    }
+}

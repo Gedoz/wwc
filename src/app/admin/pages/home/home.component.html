@@ -1,0 +1,28 @@
+<section class="page">
+    <div class="container">
+        <h1 class="home-title">
+            Seja bem-vindo, {{_auth.user.nome}} {{_auth.user.sobrenome}}!
+        </h1>
+        <ul class="pages">
+            <li *ngFor="let p of pages" class="pages-item">
+                <ng-container *ngIf="!p.group">
+                    <a mat-button [routerLink]="p.route">
+                        <i [class]="p.icon"></i>
+                        <span>{{p.name}}</span>
+                    </a>
+                </ng-container>
+                <ng-container *ngIf="p.group">
+                    <a mat-button [matMenuTriggerFor]="menu">
+                        <i [class]="p.icon"></i>
+                        <span>{{p.name}}</span>
+                    </a>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item *ngFor="let item of p.group" [routerLink]="item.route">
+                            {{item.name}}
+                        </button>
+                    </mat-menu>
+                </ng-container>
+            </li>
+        </ul>
+    </div>
+</section>

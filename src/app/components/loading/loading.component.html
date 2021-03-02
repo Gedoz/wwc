@@ -1,0 +1,7 @@
+<div class="loading-modal" [class.active]="loadingService.active">
+    <h2 class="loading-modal__title">
+        {{loadingService.title}}
+    </h2>
+    <mat-progress-bar mode="indeterminate" color="primary"></mat-progress-bar>
+</div>
+<div class="loading-modal-backdrop" [class.active]="loadingService.active"></div>
