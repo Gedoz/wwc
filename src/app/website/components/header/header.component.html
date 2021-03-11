@@ -6,7 +6,7 @@
             </a>
             <button class="header-menu__toggle hidden-desktop" (click)="menuOpen = !menuOpen">
                 <i class="fas fa-bars"></i>
-            </button>
+            </button>   
             <ul class="header-menu" [class.active]="menuOpen">
                 <li class="header-menu__item nunito" [ngxScrollTo]="'beneficios'" [ngxScrollToOffset]="-100" (click)="menuOpen = false">
                     <a class="header-menu__link scrollspy-link" href="#beneficios">
@@ -26,11 +26,6 @@
                 <li class="header-menu__item nunito" [ngxScrollTo]="'clientes'" [ngxScrollToOffset]="-100" (click)="menuOpen = false">
                     <a class="header-menu__link scrollspy-link" href="#clientes">
                         Clientes
-                    </a>
-                </li>
-                <li class="header-menu__item nunito" [ngxScrollTo]="'faq'" [ngxScrollToOffset]="-100" (click)="menuOpen = false">
-                    <a class="header-menu__link scrollspy-link" href="#faq">
-                        FAQ
                     </a>
                 </li>
                 <li class="header-menu__item nunito" [ngxScrollTo]="'contato'" [ngxScrollToOffset]="-100" (click)="menuOpen = false">

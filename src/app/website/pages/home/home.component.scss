@@ -9,9 +9,9 @@
     position: relative;
 
     &__title {
-        font-size: 60px;
+        font-size: 56px;
         color: $color-primary;
-        line-height: 70px;
+        line-height: 1;
         font-weight: 900;
     }
 
@@ -19,7 +19,7 @@
         margin-top: 40px;
         color: $text-color-secondary;
         font-weight: 500;
-        font-size: 18px;
+        font-size: 16px;
         line-height: 2;
     }
 
@@ -349,20 +349,27 @@
     &-list {
         margin-top: 100px;
         display: flex;
-        flex-flow: row;
+        flex-direction: row;
+        flex-wrap: wrap;
         align-items: flex-start;
-        gap: 30px;
         transform: translateY(-250px);
+        gap: 30px;
+
+        &__buttons {
+            margin-top: 30px;
+        }
     }
 
     &-item {
-        flex: 1;
+        flex: 0 0 calc(25% - 40px);
+        width: calc(25% - 40px);
         padding: 0 40px 30px;
         background: #ffffff;
         border-radius: 60px;
         box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.16);
         width: 100%;
         text-align: center;
+        margin-bottom: 50px;
 
         .icon {
             width: 130px;
@@ -479,6 +486,7 @@
         align-items: center;
         justify-content: flex-start;
         flex-flow: column;
+        z-index: 2;
     }
 
     .elements {
@@ -493,6 +501,7 @@
 
         &-item {
             position: absolute;
+            z-index: -1;
 
             img {
                 display: block;
@@ -568,8 +577,8 @@
             display: flex;
             flex-flow: row;
             align-items: flex-end;
-            transform: translate(0, -8px);
             padding-left: 50px;
+            margin-top: 16px;
 
             &__avatar {
                 min-height: 36px;
@@ -684,6 +693,10 @@
         border-top: 1px solid #ffffff;
         border-bottom: 1px solid #ffffff;
         padding: 20px 0 10px;
+
+        &.hidden {
+            display: none;
+        }
 
         &-header {
             display: flex;

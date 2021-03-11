@@ -42,6 +42,7 @@ import { NgwWowModule } from 'ngx-wow';
     NgxMaskModule.forRoot(),
     ScrollToModule.forRoot(),
     NgwWowModule,
+    MaterialModule
   ],
   entryComponents: [
     LoadingComponent,

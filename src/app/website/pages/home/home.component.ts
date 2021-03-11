@@ -63,6 +63,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   perguntas: Pergunta[] = [];
   contatoGeral: ContatoGeral = new ContatoGeral();
 
+  showMore: boolean = false;
+
   constructor(
     public _data: DataService,
     public _global: GlobalService,
@@ -102,7 +104,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       this._data.getBanner(),
       this._data.getBeneficios(1, 3),
       this._data.getConsultorias(-99, -99),
-      this._data.getModulos(1, 4),
+      this._data.getModulos(-99, -99),
       this._data.getClientes(-99, -99),
       this._data.getDepoimentos(-99, -99),
       this._data.getPerguntas(-99, -99),
