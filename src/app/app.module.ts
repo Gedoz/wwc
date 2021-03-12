@@ -22,6 +22,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { NgxMaskModule } from 'ngx-mask';
 import { SwiperModule } from 'ngx-swiper-wrapper';
 import { NgwWowModule } from 'ngx-wow';
+import { PipesModule } from './pipes/pipes.module';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,6 @@ import { NgwWowModule } from 'ngx-wow';
     LoadingComponent,
     ModalResetPasswordComponent,
     DialogComponent,
-    FilterPipe,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -42,7 +42,8 @@ import { NgwWowModule } from 'ngx-wow';
     NgxMaskModule.forRoot(),
     ScrollToModule.forRoot(),
     NgwWowModule,
-    MaterialModule
+    MaterialModule,
+    PipesModule,
   ],
   entryComponents: [
     LoadingComponent,
@@ -55,6 +56,7 @@ import { NgwWowModule } from 'ngx-wow';
     NgxMaskModule,
     ScrollToModule,
     NgwWowModule,
+    PipesModule,
   ],
   providers: [
     { provide: MatPaginatorIntl, useValue: getBrazilianPaginatorIntl() },

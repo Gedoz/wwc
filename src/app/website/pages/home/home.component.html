@@ -50,8 +50,8 @@
                     <div class="about-list">
                         <div class="about-item" *ngFor="let b of beneficios; let i = index;" [class.active]="i == 1">
                             <div class="about-item__icon">
-                                <img [src]="_global.imageUrl+b.imagem" [alt]="b.nome" class="icon-ref">
-                                <img src="assets/logo-icon-full.svg" alt="dsauhdsa" class="icon-logo">
+                                <img [src]="_global.imageUrl+b.imagem" [alt]="b.nome" appLazyLoad class="icon-ref">
+                                <img appLazyLoad src="assets/logo-icon-full.svg" alt="dsauhdsa" class="icon-logo">
                             </div>
                             <h3 class="about-item__title">
                                 {{b.nome}}
@@ -107,7 +107,7 @@
             <div class="container">
                 <div class="modules-box">
                     <div class="wrapper">
-                        <img src="assets/module-computer.png" alt="Pczin"
+                        <img appLazyLoad src="assets/module-computer.png" alt="Pczin"
                             class="animate__animated animate__fadeInLeft wow">
                         <div class="title animate__animated animate__fadeIn wow">
                             <h2 class="modules__title nunito">
@@ -129,9 +129,14 @@
                             {{m.nome}}
                         </h3>
                         <ul *ngIf="m.funcionalidades.length" class="modules-item__functionalities">
-                            <li *ngFor="let f of m.funcionalidades">
+                            <li *ngFor="let f of m.funcionalidades; let i = index;"
+                                [class.hidden]="!m.showMore && i < 2">
                                 {{f.descricao}}
                             </li>
+                            <a (click)="m.showMore = !m.showMore" class="modules-item__link"
+                                *ngIf="m.funcionalidades.length > 3">
+                                mostrar {{m.showMore ? 'menos' : 'mais'}}
+                            </a>
                         </ul>
                         <p class="modules-item__description">
                             {{m.descricao}}
@@ -155,7 +160,7 @@
                 <div class="brands-list">
                     <a class="brands-item animate__animated animate__fadeIn wow" *ngFor="let c of clientes"
                         [href]="c.link" target="_blank">
-                        <img [src]="_global.imageUrl+c.imagem" [alt]="c.nome">
+                        <img [src]="_global.imageUrl+c.imagem" appLazyLoad [alt]="c.nome">
                     </a>
                     <a class="btn btn-default" (click)="openWhatsapp()">
                         <span>Faça parte</span>
@@ -171,8 +176,7 @@
                         E falam<br />sobre nós
                     </h2>
                     <p class="feedbacks__description">
-                        Ficou alguma dúvida ou gostaria de uma demonstração gratuita, preencha o formulário a baixo que
-                        entraremos em contato.
+                        Depoimento de clientes que acreditaram e hoje são cases de sucesso.
                     </p>
                     <div class="feedbacks__buttons">
                         <div class="feedbacks-arrows">
@@ -196,7 +200,7 @@
                             <div class="person">
                                 <div class="person__avatar">
                                     <img [src]="d.imagem ? _global.imageUrl+d.imagem : 'assets/user-avatar.png'"
-                                        [alt]="d.nome">
+                                        [alt]="d.nome" appLazyLoad>
                                 </div>
                                 <span class="person__name nunito">
                                     {{d.nome}}
@@ -208,10 +212,10 @@
                 </div>
                 <div class="elements">
                     <div class="elements-item elements-item--01">
-                        <img src="assets/elements/element01.png" alt="01">
+                        <img appLazyLoad src="assets/elements/element01.png" alt="01">
                     </div>
                     <div class="elements-item elements-item--02">
-                        <img src="assets/elements/element02.png" alt="02">
+                        <img appLazyLoad src="assets/elements/element02.png" alt="02">
                     </div>
                 </div>
             </div>
@@ -263,7 +267,8 @@
                         a gente
                     </h2>
                     <p class="contact__description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut neque non nibh.
+                        Ficou alguma dúvida ou gostaria de uma demonstração gratuita, preencha o formulário a baixo que
+                        entraremos em contato.
                     </p>
                 </div>
                 <div class="contact-box-content">

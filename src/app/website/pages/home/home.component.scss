@@ -351,7 +351,6 @@
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        align-items: flex-start;
         transform: translateY(-250px);
         gap: 30px;
 
@@ -408,10 +407,22 @@
                 color: $color-secondary;
                 font-weight: 700;
 
+                &.hidden {
+                    display: none;
+                }
+
                 & + li {
                     margin-top: 10px;
                 }
             }
+        }
+
+        &__link {
+            font-size: 13px;
+            color: $text-color-secondary;
+            display: block;
+            margin-top: 10px;
+            text-align: center;
         }
     }
 }

@@ -117,7 +117,10 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       this.banner = res[0];
       this.beneficios = res[1];
       this.consultorias = res[2];
-      this.modulos = res[3];
+      this.modulos = res[3].map(m => {
+        m.showMore = false;
+        return m;
+      });
       this.clientes = res[4];
       this.depoimentos = res[5];
       this.perguntas = res[6];

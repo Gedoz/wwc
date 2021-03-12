@@ -14,8 +14,7 @@
                 </button>
             </mat-form-field>
 
-            <!-- | filter:search:'name'; -->
-            <li class="header-menu__item" *ngFor="let page of pages">
+            <li class="header-menu__item" *ngFor="let page of pages | filter:search:'name';">
                 <a (click)="goTo(page)" mat-button class="header-menu__link">
                     <i [class]="page.icon"></i>
                     <span class="header-menu__item__name">{{page.name}}</span>

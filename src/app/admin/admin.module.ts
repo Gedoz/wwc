@@ -34,6 +34,7 @@ import { FuncionalidadesModalComponent } from './components/funcionalidades-moda
 import { ConsultoriasComponent } from './pages/consultorias/consultorias.component';
 import { ConsultoriasCriarComponent } from './pages/consultorias-criar/consultorias-criar.component';
 import { ConsultoriasEditarComponent } from './pages/consultorias-editar/consultorias-editar.component';
+import { PipesModule } from '../pipes/pipes.module';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { ConsultoriasEditarComponent } from './pages/consultorias-editar/consult
     AdminRoutingModule,
     FormsModule,
     MaterialModule,
-    NgxMaskModule.forChild()
+    NgxMaskModule.forChild(),
+    PipesModule,
   ]
 })
 export class AdminModule { }

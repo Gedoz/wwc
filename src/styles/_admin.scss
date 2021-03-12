@@ -11,10 +11,10 @@
 
 .header-menu-search {
     input {
-        color: #fff;
+        color: $text-color-primary;
 
         &::placeholder {
-            color: #fff;
+            color: $text-color-primary;
             opacity: 0.8;
         }
     }
@@ -295,8 +295,9 @@ main.logged {
         &-image {
             height: 75px;
             width: 75px;
-            object-fit: cover;
+            object-fit: contain;
             display: block;
+            background-color: #ccc;
         }
     }
 
@@ -423,10 +424,12 @@ main.logged {
 
         &-image {
             position: relative;
+
             img {
                 width: 240px;
                 display: block;
                 margin-bottom: 10px;
+                background-color: #ccc;
             }
 
             &__button {

@@ -1,7 +1,6 @@
 @import "../../../../styles/variables";
 
 .footer {
-
     background: url(../../../../assets/footer.svg) top left no-repeat;
     padding: 30px 0;
     background-size: cover;
@@ -62,9 +61,14 @@
         display: flex;
         align-items: center;
         margin-top: 40px;
+        font-size: 24px;
 
         &-item {
             margin-right: 24px;
+
+            &:hover {
+                opacity: 0.6;
+            }
         }
     }
 
@@ -82,7 +86,6 @@
 }
 
 @media screen and (max-width: 768px) {
-
     .footer {
         background: $color-secondary;
 
@@ -94,7 +97,7 @@
                 align-items: center;
                 justify-content: center;
                 gap: 0px;
-    
+
                 .col {
                     & + .col {
                         margin-top: 44px;

@@ -12,9 +12,11 @@ import { AlertComponent } from './components/alert/alert.component';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { NgwWowModule } from 'ngx-wow';
 import { WhatsappButtonComponent } from '../components/whatsapp-button/whatsapp-button.component';
+import { PipesModule } from '../pipes/pipes.module';
+import { LazyLoadDirective } from './directives/lazy-load.directive';
 
 @NgModule({
-  declarations: [MainComponent, HomeComponent, HeaderComponent, FooterComponent, AlertComponent, WhatsappButtonComponent],
+  declarations: [MainComponent, HomeComponent, HeaderComponent, FooterComponent, AlertComponent, WhatsappButtonComponent, LazyLoadDirective],
   imports: [
     CommonModule,
     WebsiteRoutingModule,
@@ -22,7 +24,7 @@ import { WhatsappButtonComponent } from '../components/whatsapp-button/whatsapp-
     SwiperModule,
     NgxMaskModule.forChild(),
     ScrollToModule,
-    NgwWowModule
+    NgwWowModule,
   ]
 })
 export class WebsiteModule { }
