@@ -9,12 +9,7 @@ import { AppServerModule } from './src/main.server';
 import { APP_BASE_HREF } from '@angular/common';
 import { existsSync } from 'fs';
 
-function requireHTTPS(req, res, next) {
-  if (!req.secure && req.get('x-forwarded-proto') !== 'https' && process.env.NODE_ENV !== "development") {
-    return res.redirect('https://' + req.get('host') + req.url);
-  }
-  next();
-}
+const production = false;
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
@@ -23,19 +18,28 @@ export function app(): express.Express {
   const distFolder = join(process.cwd(), 'dist/wwc/browser');
   const indexHtml = existsSync(join(distFolder, 'index.original.html')) ? 'index.original.html' : 'index';
 
-  const domino = require("domino");
+  const domino = require('domino');
   const win = domino.createWindow(indexHtml);
   global["window"] = win;
   global["document"] = win.document;
   global['localStorage'] = localStorage;
-  global['sessionStorage'] = win.sessionStorage;
 
   // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
   server.engine('html', ngExpressEngine({
     bootstrap: AppServerModule,
   }));
 
-  // server.use(requireHTTPS);
+  // ---- REDIRECT TO HTTPS ---- //
+  if (production) {
+    server.enable('trust proxy');
+    server.use(function (req, res, next) {
+      if (req.secure) {
+        next();
+      } else {
+        res.redirect(301, 'https://' + req.headers.host + req.url);
+      }
+    });
+  }
   server.use(compression());
   server.set('view engine', 'html');
   server.set('views', distFolder);
